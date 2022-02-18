@@ -1,5 +1,5 @@
 # Lukit Test Catalog 2022
-Prosty katalog produktów z podziałem na kategroie i podkategorie.
+Zadanie polega na stworzeniu prostego katalogu produktów on-line w języku PHP (i javascript) przy pomocy frameworka Symfony 5 oraz wybranego frameworka UI.
 
 ## Opis
 

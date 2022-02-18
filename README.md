@@ -1,5 +1,6 @@
 # Lukit Test Catalog 2022
 Zadanie polega na stworzeniu prostego katalogu produktów on-line w języku PHP (i javascript) przy pomocy frameworka Symfony 5 oraz wybranego frameworka UI.
+Dane produktów powinny być przechowywane w bazie SQL.
 
 ## Opis
 
@@ -11,11 +12,15 @@ Katalog powinien być responsywny zbudowany na wybranym frameworku UI.
 
 ### Frontend
 
-Na froncie widoczna jest lista kategorii głównych z możliwością rozwinięcia drzewa i podglądu (wejscia do) pod-kategorii oraz lista produktów.
-Podgląd wybranej kategorii zawęża listę produktów do tych dostępnych w aktualnie wybranej.
-Domyślnie na stronie głównej wyświetlać karty wszystkich produktów. 
-Każda karta produktu powinna wyświetlać nazwę, zdjęcie, krótki opis oraz cenę.
+Na froncie powiwnny być widoczne 2 bloki - lista kategorii oraz lista produktów - z możliwością kliknięcia w nazwę i wejścia dalej do podglądu. 
+Podgląd wybranej kategorii zawęża listę produktów do tych dostępnych w aktualnie wybranej oraz listę kategorii do kategorii podrzędnych.
+Domyślnie na stronie głównej wyświetlać listę kategorii głównych oraz listę produktów wszystkich produktów. W przypadku większej ilości produktów pokazać paginację.
+Lista produktów powinna być pokazana jako lista kart/bloków gdzie każda karta produktu zawiera nazwę, zdjęcie oraz cenę.
 Lista produktów i kategorii posortowana po nazwie ASC.
+Każdy produkt ma mieć swoją stronę - poprzez wejsćie z karty produktu. Na stronie produktu pokazać zdjęcie, nazwę, cenę oraz dodatkowo opis. 
+W url strony produktu pokazywać nazwę produktu (slug).
+
+Wizualnie frontent powinien być czytelny i responsywny na dużych i małych urządzeniach.
 
 ### Backend
 
@@ -43,9 +48,9 @@ Lista produktów i kategorii domyśłnie posortowana po nazwie ASC. Możliwe sor
 
 ## Stack
 
-- Symfony 5 + Twig
+- Symfony 5 + Twig (+ javascript)
 - Mysql/MariaDb + Doctrine
-- Frontend - wybrany Responsive Framework np: Bootstrap lub Semantic UI
+- Frontend - wybrany Responsive Framework np: Bootstrap, Semantic UI lub inny
 - Backend - również responsywny, można posiłkować się dostępnymi w Symfony generatorami CRUD
 
 ## Założenia
@@ -53,7 +58,7 @@ Lista produktów i kategorii domyśłnie posortowana po nazwie ASC. Możliwe sor
 - W kodzie nazwy metod, encji, dokumentacja, komentarze po angielsku
 - Przygotwać zestaw danych startowych - fixtures
 - Proste testy funkcjonalne i unity w miarę potrzeby
-- Załączyć instrukcję/opis instalacji i odpalenia projektu - osobny plik readme
-- Github - działamy na prywatnych forkach tego repozytorium i wszelkie zmiany wrzucamy jako Pull Requesty
+- Załączyć instrukcję/opis instalacji i odpalenia projektu, fixtures i testów - w osobny pliku np install
+- Github - należy wykonać fork niniejszego repozytorium i wszelkie zmiany wrzucamy jako Pull Requesty (można wrzucić całość lub partiami)
 - Treść commitów tak jak komentarze piszemy po angielsku
 - Pytania i inne kwestie - w sekcji Issues tego repozytorium, możemy też tam wrzucać prośby o poprawki lub objaśnienia, dyskusje itp...

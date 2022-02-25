@@ -1,0 +1,57 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}Sklep internetowy - {{ product.name }}{% endblock %}
+
+{% block menu %}
+    {% include 'site/_menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section class="card-components">
+        <div class="container-fluid">
+            <div class="title-wrapper pt-30">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="title mb-30">
+                            <h2>{{ product.name }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="breadcrumb-wrapper mb-30">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="{{ path('site_home') }}">Strona główna</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="{{ path('category_index', {'id': product.category.id}) }}">{{ product.category.name }}</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        {{ product.name }}
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="title mb-30">
+                            <img alt="image" src="{{ asset('uploads/images/' ~ product.imageFilename) }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-30">
+                            <strong>Opis:</strong> <br>
+                            {{ product.description }}
+                        </p>
+                        <p>
+                            <strong>Cena:</strong><br>
+                            {{ product.price }} zł
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

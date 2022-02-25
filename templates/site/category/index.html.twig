@@ -1,0 +1,60 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}Sklep internetowy - {{ category.name }}{% endblock %}
+
+{% block menu %}
+    {% include 'site/_menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section class="card-components">
+        <div class="container-fluid">
+            <div class="title-wrapper pt-30">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="title mb-30">
+                            <h2>Produkty</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="breadcrumb-wrapper mb-30">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="#0">Panel</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">
+                                        Lista produktów
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards-styles">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                            <div class="card-style-2 mb-30">
+                                <div class="card-image">
+                                    <a href="{{ path('product_show', {'id': product.id}) }}">
+                                        <img src="{{ asset('uploads/images/' ~ product.imageFilename) }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="text-center"><a
+                                                href="{{ path('product_show', {'id': product.id}) }}">{{ product.name }}</a>
+                                    </h4>
+                                    <p class="text-center">
+                                        {{ product.price }} zł
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

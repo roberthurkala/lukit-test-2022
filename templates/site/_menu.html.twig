@@ -1,0 +1,34 @@
+<aside class="sidebar-nav-wrapper">
+    <nav class="sidebar-nav">
+        <ul>
+            {% if productCategories is defined %}
+                <li class="nav-item">
+                    <h3 class="text">Kategorie</h3>
+                </li>
+                {% for productCategory in productCategories %}
+                    <li class="nav-item">
+                        <a href="{{ path('category_index', {'id': productCategory.id}) }}">
+                            <span class="text">{{ productCategory.name }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li class="nav-item">
+                    <h3 class="text">{{ category.name }}</h3>
+                </li>
+                {% for parentCategory in category.categories %}
+                    <li class="nav-item">
+                        <a href="{{ path('category_index', {'id': parentCategory.id}) }}">
+                            <span class="text">{{ parentCategory.name }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+                <li class="nav-item">
+                    <a href="{{ path('site_home') }}">
+                        <span class="text">Powrót do strony głównej</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</aside>

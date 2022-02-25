@@ -1,0 +1,96 @@
+{% extends 'admin_page.html.twig' %}
+
+{% block title %}Lista kategorii{% endblock %}
+
+{% block menu %}
+    {% include 'admin/_menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container-fluid">
+            <div class="title-wrapper pt-30">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="title d-flex align-items-center flex-wrap mb-30">
+                            <h2 class="mr-40">Lista kategorii</h2>
+                            <a href="{{ path('admin_category_new') }}" class="main-btn primary-btn btn-hover btn-sm">
+                                <i class="lni lni-plus mr-5"></i> Nowa kategoria</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="breadcrumb-wrapper mb-30">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href="{{ path('admin_category_index') }}">Lista kategorii</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        {% for message in app.flashes('notice') %}
+                            <div class="alert-box primary-alert">
+                                <div class="flash-notice alert">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="card-style mb-30">
+                            <div class="table-wrapper table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>{{ 'admin_category.field.lp'|trans }}</th>
+                                        <th>{{ 'admin_category.field.name'|trans }}</th>
+                                        <th>{{ 'admin_category.field.parent_category'|trans }}</th>
+                                        <th>{{ 'admin_category.field.update_at'|trans }}</th>
+                                        <th>{{ 'system.text.actions'|trans }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for category in categories %}
+                                        <tr>
+                                            <td>{{ loop.index0 + categories.getPaginationData.firstItemNumber }}</td>
+                                            <td class="min-width">
+                                                <p>{{ category.name }}</p>
+                                            </td>
+                                            <td class="min-width">
+                                                <p>{{ category.parentCategory }}</p>
+                                            </td>
+                                            <td class="min-width">
+                                                <p>{{ category.updateAt ? category.updateAt|date('Y-m-d H:i:s') : '---' }}</p>
+                                            </td>
+                                            <td>
+                                                <div class="action">
+                                                    <a class="text-success"
+                                                       href="{{ path('admin_category_edit', {'id': category.id}) }}">
+                                                        <i class="lni lni-pencil"></i> Edytuj
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td class="text-center" colspan="4">Nie znaleziono wierszy</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="navigation">
+                                    {{ knp_pagination_render(categories) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

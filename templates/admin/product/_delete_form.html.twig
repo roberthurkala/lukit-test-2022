@@ -1,0 +1,7 @@
+<form method="post" action="{{ path('admin_product_delete', {'id': product.id}) }}"
+      onsubmit="return confirm('Czy na pewno chcesz usunąć?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+    <button class="main-btn danger-btn btn-hover btn-sm ml-5"><i class="lni lni-trash-can"></i>
+        {{ 'system.text.delete'|trans }}
+    </button>
+</form>

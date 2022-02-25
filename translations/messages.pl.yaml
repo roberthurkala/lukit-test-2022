@@ -1,0 +1,23 @@
+admin_category:
+  field:
+    lp: LP.
+    name: Nazwa
+    parent_category: Kategoria nadrzędna
+    update_at: Data aktualizacji
+
+admin_product:
+  field:
+    lp: LP.
+    image: Zdjęcie
+    name: Nazwa
+    description: Opis
+    price: Cena
+    category: Kategoria
+    image_form: Zdjęcie (tylko JPG)
+    update_at: Data aktualizacji
+
+system:
+  text:
+    actions: Akcje
+    save: Zapisz
+    delete: Usuń

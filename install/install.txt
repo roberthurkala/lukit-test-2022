@@ -1,0 +1,7 @@
+Aby zainstalować projekt należy:
+- zrobić git clone projektu z github
+- wykonać composer install
+- wykonać php bin/console d:s:u --force
+- wykonać php bin/console d:f:l
+- wykonać vendor/bin/codecept run functional aby uruchomić testy funkcjonalne
+

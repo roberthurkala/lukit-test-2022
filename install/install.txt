@@ -1,7 +1,14 @@
 Aby zainstalować projekt należy:
 - zrobić git clone projektu z github
 - wykonać composer install
+- utworzyć bazę danych np. lukit
 - wykonać php bin/console d:s:u --force
 - wykonać php bin/console d:f:l
-- wykonać vendor/bin/codecept run functional aby uruchomić testy funkcjonalne
+
+Aby wykonać testy należy:
+- skonfigurować plik .env.test.local
+- utworzyć bazę danych np. lukit_test
+- wykonać php bin/console d:s:u --force --env=test
+- wykonać php bin/console d:f:l --env=test
+- wykonać vendor/bin/codecept run functional - aby uruchomić testy funkcjonalne
 

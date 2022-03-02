@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends AbstractController
 {
-    private const LIST_PER_PAGE = 5;
+    private const LIST_PER_PAGE = 10;
 
     /**
      * @Route("/{page}", name="index", requirements={"page"="\d+"}, methods={"GET"})

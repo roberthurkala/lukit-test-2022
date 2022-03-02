@@ -30,7 +30,6 @@ class Category
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
-     * @Assert\DateTime()
      */
     private $updateAt;
 
